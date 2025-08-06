@@ -30,6 +30,12 @@ const app = express();
 // Trust proxy for rate limiting
 app.set('trust proxy', 1);
 
+// Debug middleware to log all requests
+app.use((req, res, next) => {
+  console.log(`🔍 ${req.method} ${req.originalUrl} -> ${req.path}`);
+  next();
+});
+
 // Connect to MongoDB
 const initializeServer = async () => {
   try {

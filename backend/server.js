@@ -127,14 +127,6 @@ app.use('/api/completed-questions', completedQuestionsRoutes);
 app.use('/api/ocr', ocrRoutes);
 
 // API Routes (without /api prefix - for hosting platforms that strip it)
-app.use('/auth', authRoutes);
-app.use('/users', userRoutes);
-app.use('/exercises', exerciseRoutes);
-app.use('/progress', progressRoutes);
-app.use('/assessment', assessmentRoutes);
-app.use('/analysis', analysisRoutes);
-app.use('/completed-questions', completedQuestionsRoutes);
-app.use('/ocr', ocrRoutes);
 
 // Health check endpoint (with /api prefix)
 app.get('/api/health', (req, res) => {

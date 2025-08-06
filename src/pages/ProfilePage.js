@@ -14,7 +14,7 @@ const ProfilePage = () => {
 
   const fetchUserProfile = useCallback(async () => {
     try {
-      const response = await fetch('https://thewriterpro.com/api/users/profile', {
+      const response = await fetch('/api/users/profile', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -37,7 +37,7 @@ const ProfilePage = () => {
 
   const fetchAnalysisHistory = useCallback(async () => {
     try {
-      const response = await fetch('https://thewriterpro.com/api/analysis/history?limit=50', {
+      const response = await fetch('/api/analysis/history?limit=50', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'

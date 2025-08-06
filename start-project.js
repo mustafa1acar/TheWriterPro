@@ -46,6 +46,6 @@ setTimeout(() => {
 }, 3000);
 
 console.log('\n✅ Startup script running...');
-console.log('📱 Frontend will be available at: https://thewriterpro.com');
-console.log('🔌 Backend will be available at: https://thewriterpro.com');
+console.log('📱 Frontend will be available at: http://localhost:3000');
+console.log('🔌 Backend will be available at: http://localhost:5000');
 console.log('⏹️  Press Ctrl+C to stop all servers\n'); 

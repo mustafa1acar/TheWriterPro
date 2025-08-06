@@ -44,8 +44,3 @@ setTimeout(() => {
   process.on('SIGINT', cleanup);
   process.on('SIGTERM', cleanup);
 }, 3000);
-
-console.log('\n✅ Startup script running...');
-console.log('📱 Frontend will be available at: http://localhost:3000');
-console.log('🔌 Backend will be available at: http://localhost:5000');
-console.log('⏹️  Press Ctrl+C to stop all servers\n'); 

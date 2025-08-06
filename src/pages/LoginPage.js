@@ -66,7 +66,7 @@ const LoginPage = () => {
     try {
       console.log('Checking assessment status with token:', token ? 'Token exists' : 'No token');
       
-      const response = await fetch('/api/assessment/status', {
+      const response = await fetch('https://thewriterpro.com/api/assessment/status', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'

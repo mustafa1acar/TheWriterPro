@@ -307,7 +307,7 @@ const ExercisePage = () => {
     
     setIsLoadingCompletedQuestions(true);
     try {
-      const response = await fetch(`/api/completed-questions/${encodeURIComponent(level)}`, {
+      const response = await fetch(`https://thewriterpro.com/api/completed-questions/${encodeURIComponent(level)}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -345,7 +345,7 @@ const ExercisePage = () => {
     setIsAssessmentCheckInProgress(true);
     
     try {
-      const response = await fetch('/api/assessment/status', {
+      const response = await fetch('https://thewriterpro.com/api/assessment/status', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -431,7 +431,7 @@ const ExercisePage = () => {
     if (!token || !selectedLevel) return false;
     
     try {
-      const response = await fetch(`/api/completed-questions/${encodeURIComponent(selectedLevel)}/${questionIndex}`, {
+      const response = await fetch(`https://thewriterpro.com/api/completed-questions/${encodeURIComponent(selectedLevel)}/${questionIndex}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -548,7 +548,7 @@ const ExercisePage = () => {
           timeSpent: (timeLimit * 60) - timeRemaining
         };
 
-        const response = await fetch('/api/analysis/analyze', {
+        const response = await fetch('https://thewriterpro.com/api/analysis/analyze', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -662,7 +662,7 @@ const ExercisePage = () => {
       formData.append('image', selectedFile);
 
       // Send to backend Gemini OCR endpoint
-      const response = await fetch('/api/ocr/extract-text', {
+      const response = await fetch('https://thewriterpro.com/api/ocr/extract-text', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

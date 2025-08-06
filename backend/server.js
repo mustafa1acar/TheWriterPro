@@ -40,6 +40,7 @@ const initializeServer = async () => {
     const PORT = process.env.PORT || 5000;
     
     app.listen(PORT, async () => {
+      console.log(`🚀 Server running on port ${PORT}`);
       console.log(`Frontend URL: ${process.env.FRONTEND_URL || 'https://thewriterpro.com'}`);
       
       // Ensure assessment data exists after server starts
@@ -50,9 +51,6 @@ const initializeServer = async () => {
     process.exit(1);
   }
 };
-
-// Initialize the server
-initializeServer();
 
 // Security middleware
 app.use(helmet());
@@ -199,6 +197,9 @@ app.use('*', (req, res) => {
 
 // Import assessment seeder
 const { seedAssessment } = require('./seeders/assessmentSeeder');
+
+// Initialize the server after all routes are mounted
+initializeServer();
 
 // Function to ensure assessment data exists
 const ensureAssessmentData = async () => {

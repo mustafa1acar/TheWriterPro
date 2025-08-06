@@ -143,7 +143,7 @@ const PrivacyPolicyPage = () => {
             </p>
             <div className="contact-info">
               <p>Email: privacy@writerpro.com</p>
-              <p>Address: [Your Company Address]</p>
+              <p>Address: 123 Writing Street New York, NY 10001</p>
             </div>
           </section>
         </div>

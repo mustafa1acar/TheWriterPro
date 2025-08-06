@@ -39,7 +39,7 @@ async function testCompleteFlow() {
     // Make API call to the analysis endpoint
     console.log('🌐 Making API call to /api/analysis/analyze...');
     
-    const response = await fetch('http://localhost:5000/api/analysis/analyze', {
+    const response = await fetch('https://thewriterpro.com/api/analysis/analyze', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ async function testCompleteFlow() {
       
       console.log('\n🎉 Complete flow test successful!');
       console.log('   The Gemini AI integration is working correctly.');
-      console.log('   You can now test it in the frontend at http://localhost:3000');
+      console.log('   You can now test it in the frontend at https://thewriterpro.com');
       
     } else {
       const errorText = await response.text();

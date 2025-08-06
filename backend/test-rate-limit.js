@@ -5,7 +5,7 @@ async function testRateLimit() {
   try {
     console.log('🧪 Testing rate limiting for assessment status endpoint...');
     
-    const baseUrl = 'http://localhost:5000';
+    const baseUrl = 'https://thewriterpro.com';
     const testToken = 'test-token'; // This will fail auth but we can test rate limiting
     
     // Make multiple requests to test rate limiting

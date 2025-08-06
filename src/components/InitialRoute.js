@@ -17,7 +17,7 @@ const InitialRoute = ({ children }) => {
           console.log('Checking assessment status for user:', user.email);
           
           // Check if user has completed assessment
-          const response = await fetch('http://localhost:5000/api/assessment/status', {
+          const response = await fetch('https://thewriterpro.com/api/assessment/status', {
             headers: {
               'Authorization': `Bearer ${token}`,
               'Content-Type': 'application/json'

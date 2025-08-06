@@ -7,7 +7,7 @@ async function testOCR() {
     console.log('🧪 Testing OCR endpoint...');
     
     // First, test the health endpoint
-    const healthResponse = await fetch('http://localhost:5000/api/ocr/health', {
+    const healthResponse = await fetch('https://thewriterpro.com/api/ocr/health', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

@@ -40,7 +40,7 @@ const initializeServer = async () => {
     const PORT = process.env.PORT || 5000;
     
     app.listen(PORT, async () => {
-      console.log(`Frontend URL: ${process.env.FRONTEND_URL || 'http://localhost:3000'}`);
+      console.log(`Frontend URL: ${process.env.FRONTEND_URL || 'https://thewriterpro.com'}`);
       
       // Ensure assessment data exists after server starts
       await ensureAssessmentData();
@@ -101,7 +101,7 @@ app.use('/api/assessment', assessmentLimiter);
 
 // CORS configuration
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+      origin: process.env.FRONTEND_URL || 'https://thewriterpro.com',
   credentials: true,
   optionsSuccessStatus: 200,
 };

@@ -25,7 +25,7 @@ const AssessmentPage = () => {
   useEffect(() => {
     const checkAssessmentStatus = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/assessment/status', {
+        const response = await fetch('https://thewriterpro.com/api/assessment/status', {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
@@ -71,7 +71,7 @@ const AssessmentPage = () => {
 
   const fetchAssessmentQuestions = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/assessment/questions', {
+      const response = await fetch('https://thewriterpro.com/api/assessment/questions', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -146,7 +146,7 @@ const AssessmentPage = () => {
         }
       };
 
-      const response = await fetch('http://localhost:5000/api/assessment/submit', {
+      const response = await fetch('https://thewriterpro.com/api/assessment/submit', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

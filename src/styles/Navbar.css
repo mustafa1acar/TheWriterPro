@@ -87,12 +87,16 @@
   background: linear-gradient(135deg, #0ea5e9 0%, #10b981 100%);
   color: white;
   border: none;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.025em;
 }
 
 .nav-button-primary:hover {
   background: linear-gradient(135deg, #0284c7 0%, #059669 100%);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .nav-toggle {

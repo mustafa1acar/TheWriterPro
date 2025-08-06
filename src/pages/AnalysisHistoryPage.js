@@ -24,7 +24,7 @@ const AnalysisHistoryPage = () => {
 
   const fetchUserProfile = async () => {
     try {
-      const response = await fetch('/api/users/profile', {
+      const response = await fetch('https://thewriterpro.com/api/users/profile', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -55,7 +55,7 @@ const AnalysisHistoryPage = () => {
         params.append('level', selectedLevel);
       }
 
-      const response = await fetch(`/api/analysis/history?${params}`, {
+      const response = await fetch(`https://thewriterpro.com/api/analysis/history?${params}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -85,7 +85,7 @@ const AnalysisHistoryPage = () => {
     }
 
     try {
-      const response = await fetch(`/api/analysis/${analysisId}`, {
+      const response = await fetch(`https://thewriterpro.com/api/analysis/${analysisId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

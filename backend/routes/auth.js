@@ -74,6 +74,8 @@ router.post('/register', validateUserRegistration, async (req, res) => {
 // @route   POST /api/auth/login
 // @access  Public
 router.post('/login', validateUserLogin, async (req, res) => {
+  console.log('🔐 Login route hit!');
+  console.log('Request body:', req.body);
   try {
     const { email, password } = req.body;
 

@@ -36,6 +36,11 @@ app.use((req, res, next) => {
   next();
 });
 
+// Test route to verify basic routing
+app.get('/test', (req, res) => {
+  res.json({ message: 'Test route working!' });
+});
+
 // Connect to MongoDB
 const initializeServer = async () => {
   try {
@@ -121,6 +126,7 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // API Routes (with /api prefix)
+console.log('🔧 Mounting routes with /api prefix...');
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/exercises', exerciseRoutes);
@@ -129,8 +135,19 @@ app.use('/api/assessment', assessmentRoutes);
 app.use('/api/analysis', analysisRoutes);
 app.use('/api/completed-questions', completedQuestionsRoutes);
 app.use('/api/ocr', ocrRoutes);
+console.log('✅ Routes with /api prefix mounted');
 
 // API Routes (without /api prefix - for hosting platforms that strip it)
+console.log('🔧 Mounting routes without /api prefix...');
+app.use('/auth', authRoutes);
+app.use('/users', userRoutes);
+app.use('/exercises', exerciseRoutes);
+app.use('/progress', progressRoutes);
+app.use('/assessment', assessmentRoutes);
+app.use('/analysis', analysisRoutes);
+app.use('/completed-questions', completedQuestionsRoutes);
+app.use('/ocr', ocrRoutes);
+console.log('✅ Routes without /api prefix mounted');
 
 // Health check endpoint (with /api prefix)
 app.get('/api/health', (req, res) => {

@@ -116,7 +116,7 @@ app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// API Routes
+// API Routes (with /api prefix)
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/exercises', exerciseRoutes);
@@ -126,8 +126,28 @@ app.use('/api/analysis', analysisRoutes);
 app.use('/api/completed-questions', completedQuestionsRoutes);
 app.use('/api/ocr', ocrRoutes);
 
-// Health check endpoint
+// API Routes (without /api prefix - for hosting platforms that strip it)
+app.use('/auth', authRoutes);
+app.use('/users', userRoutes);
+app.use('/exercises', exerciseRoutes);
+app.use('/progress', progressRoutes);
+app.use('/assessment', assessmentRoutes);
+app.use('/analysis', analysisRoutes);
+app.use('/completed-questions', completedQuestionsRoutes);
+app.use('/ocr', ocrRoutes);
+
+// Health check endpoint (with /api prefix)
 app.get('/api/health', (req, res) => {
+  res.status(200).json({
+    status: 'OK',
+    message: 'WriterPro API is running',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
+
+// Health check endpoint (without /api prefix)
+app.get('/health', (req, res) => {
   res.status(200).json({
     status: 'OK',
     message: 'WriterPro API is running',

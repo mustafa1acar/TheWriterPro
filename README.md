@@ -1,70 +1,220 @@
-# Getting Started with Create React App
+# WriterPro - English Writing Exercise Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A comprehensive web application for improving English writing skills through personalized exercises and assessments.
 
-## Available Scripts
+## 🚀 Quick Start
 
-In the project directory, you can run:
+### Option 1: One-Command Startup (Recommended)
+```bash
+npm run dev
+```
+This will start both frontend and backend servers automatically with database initialization.
 
-### `npm start`
+### Option 2: Manual Setup
+```bash
+# 1. Install dependencies
+npm install
+cd backend && npm install && cd ..
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# 2. Start backend (includes auto-database initialization)
+cd backend && npm start
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# 3. In a new terminal, start frontend
+npm start
+```
 
-### `npm test`
+## 📁 Project Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+writerpro/
+├── backend/                 # Node.js/Express API server
+│   ├── config/             # Database configuration
+│   ├── middleware/         # Authentication & validation
+│   ├── models/            # MongoDB schemas
+│   ├── routes/            # API endpoints
+│   ├── seeders/           # Database seeding scripts
+│   ├── scripts/           # Utility scripts
+│   └── server.js          # Main server file
+├── src/                   # React frontend
+│   ├── components/        # Reusable components
+│   ├── contexts/          # React contexts
+│   ├── pages/            # Page components
+│   ├── styles/           # CSS files
+│   └── App.js            # Main app component
+├── public/               # Static assets
+└── package.json          # Frontend dependencies
+```
 
-### `npm run build`
+## 🔧 Backend Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
+- Node.js (v16 or higher)
+- MongoDB (local or cloud)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Environment Variables
+Create a `.env` file in the `backend/` directory:
+```env
+MONGODB_URI=mongodb://localhost:27017/writerpro
+JWT_SECRET=your-secret-key-here
+FRONTEND_URL=http://localhost:3000
+NODE_ENV=development
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Available Scripts
+- `npm start` - Start production server
+- `npm run dev` - Start development server with auto-restart
+- `npm run setup` - Initialize database with required data
+- `npm run seed` - Seed assessment data only
 
-### `npm run eject`
+## 🎨 Frontend Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Prerequisites
+- Node.js (v16 or higher)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Available Scripts
+- `npm start` - Start development server
+- `npm run build` - Build for production
+- `npm run dev` - Start full project (frontend + backend)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🗄️ Database
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Automatic Initialization
+The backend automatically initializes the database when it starts:
+- ✅ Creates assessment questions if none exist
+- ✅ Fallback mechanism for missing data
+- ✅ No manual setup required
 
-## Learn More
+### Manual Initialization
+If needed, you can manually initialize the database:
+```bash
+cd backend
+npm run setup
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🔐 Authentication Flow
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Registration** → User creates account
+2. **Login** → User authenticates
+3. **Assessment Check** → System checks if user has completed assessment
+4. **Redirect** → User is redirected to appropriate page:
+   - Assessment page (if not completed)
+   - Exercises page (if completed)
 
-### Code Splitting
+## 📊 Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### User Management
+- User registration and authentication
+- JWT-based session management
+- User profile management
 
-### Analyzing the Bundle Size
+### Assessment System
+- 15-question English proficiency assessment
+- Multiple difficulty levels (A1-C2)
+- Skills breakdown (grammar, vocabulary, structure, comprehension)
+- Automatic level determination
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Exercise System
+- Personalized exercises based on assessment results
+- Progress tracking
+- Skill development focus
 
-### Making a Progressive Web App
+## 🛠️ Development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Starting Development Servers
+```bash
+# Start both servers with one command
+npm run dev
 
-### Advanced Configuration
+# Or start them separately
+# Terminal 1: Backend
+cd backend && npm run dev
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# Terminal 2: Frontend
+npm start
+```
 
-### Deployment
+### Database Management
+```bash
+# Initialize database
+cd backend && npm run setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# Seed assessment data only
+cd backend && npm run seed
+```
 
-### `npm run build` fails to minify
+### API Testing
+The backend includes several endpoints for testing:
+- `GET /api/health` - Health check
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/login` - User login
+- `GET /api/assessment/status` - Check assessment status
+- `GET /api/assessment/questions` - Get assessment questions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🐛 Troubleshooting
+
+### "No active assessment found" Error
+This is automatically resolved by the backend, but if it persists:
+```bash
+cd backend && npm run seed
+```
+
+### Database Connection Issues
+1. Ensure MongoDB is running
+2. Check `MONGODB_URI` in `.env` file
+3. Verify database permissions
+
+### Port Conflicts
+- Frontend: Change port in `package.json` or use `PORT=3001 npm start`
+- Backend: Set `PORT=5001` in `.env` file
+
+### Proxy Issues
+The frontend is configured to proxy API requests to the backend. If you encounter proxy issues:
+- Ensure backend is running on port 5000
+- Check that both servers are running
+- Restart both servers if needed
+
+## 📝 API Documentation
+
+### Authentication Endpoints
+- `POST /api/auth/register` - Register new user
+- `POST /api/auth/login` - Login user
+- `GET /api/auth/me` - Get current user info
+
+### Assessment Endpoints
+- `GET /api/assessment/status` - Check assessment completion status
+- `GET /api/assessment/questions` - Get assessment questions
+- `POST /api/assessment/submit` - Submit assessment answers
+- `GET /api/assessment/history` - Get user's assessment history
+
+### Health Check
+- `GET /api/health` - Check API status
+
+## 🚀 Deployment
+
+### Backend Deployment
+1. Set production environment variables
+2. Run `npm run build` (if applicable)
+3. Start with `npm start`
+
+### Frontend Deployment
+1. Run `npm run build`
+2. Deploy the `build/` folder to your hosting service
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📞 Support
+
+For issues and questions:
+1. Check the troubleshooting section
+2. Review the API documentation
+3. Check the backend setup guide in `backend/SETUP.md` 

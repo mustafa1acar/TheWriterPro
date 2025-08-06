@@ -1,0 +1,272 @@
+.blog-post-page {
+  padding: 4rem 0;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.blog-post-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Back Link */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  color: #4f46e5;
+  transform: translateX(-4px);
+}
+
+/* Article Header */
+.article-header {
+  margin-bottom: 2rem;
+}
+
+.article-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.article-category {
+  background: #6366f1;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.article-date-time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6b7280;
+}
+
+.article-date-time svg {
+  color: #9ca3af;
+}
+
+.article-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.article-author {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.article-author svg {
+  color: #9ca3af;
+}
+
+/* Article Image */
+.article-image {
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.article-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Article Content */
+.article-content {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+.article-body {
+  line-height: 1.8;
+  color: #374151;
+}
+
+.article-body h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 2rem 0 1rem 0;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.article-body h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.article-body p {
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.article-body ul {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.article-body li {
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+}
+
+.article-body strong {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* Article Footer */
+.article-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.share-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.share-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.share-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.share-button:hover {
+  background: #4f46e5;
+  transform: translateY(-2px);
+}
+
+/* Loading and Not Found States */
+.loading,
+.not-found {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.loading {
+  color: #6b7280;
+  font-size: 1.125rem;
+}
+
+.not-found h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.not-found p {
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+.back-to-blog {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.back-to-blog:hover {
+  color: #4f46e5;
+  transform: translateX(-4px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .blog-post-page {
+    padding: 2rem 0;
+  }
+
+  .article-title {
+    font-size: 2rem;
+  }
+
+  .article-content {
+    padding: 1.5rem;
+  }
+
+  .article-body h2 {
+    font-size: 1.25rem;
+  }
+
+  .article-body p,
+  .article-body li {
+    font-size: 1rem;
+  }
+
+  .article-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-post-container {
+    padding: 0 15px;
+  }
+
+  .article-title {
+    font-size: 1.75rem;
+  }
+
+  .article-content {
+    padding: 1rem;
+  }
+
+  .article-body h2 {
+    font-size: 1.125rem;
+  }
+
+  .share-buttons {
+    flex-direction: column;
+  }
+} 
